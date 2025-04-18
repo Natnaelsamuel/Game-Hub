@@ -1,4 +1,4 @@
-import { Flex, Grid, GridItem, HStack, Show, useBreakpointValue } from "@chakra-ui/react";
+import { Flex, Grid, GridItem, Show, useBreakpointValue } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
 import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
