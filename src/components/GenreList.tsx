@@ -4,10 +4,13 @@ import { Box, Heading, HStack, Image, Link, Spinner } from "@chakra-ui/react";
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;
-  selectedGenre: Genre | null;
+  selectedGenreId?: number;
 }
 
-const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
+const GenreList = ({
+  selectedGenreId,
+  onSelectGenre,
+}: Props) => {
   const { data, isLoading, error } = useGenres();
 
   if (error) return null;
@@ -15,7 +18,9 @@ const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
 
   return (
     <>
-      <Heading fontSize='2xl' marginBottom={3}>Genres</Heading>
+      <Heading fontSize="2xl" marginBottom={3}>
+        Genres
+      </Heading>
       <Box>
         {data?.results.map((genre) => (
           <li key={genre.id} style={{ listStyle: "none", padding: "5px 0" }}>
@@ -29,7 +34,7 @@ const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
               <Link
                 whiteSpace="normal"
                 textAlign="left"
-                fontWeight={selectedGenre?.id === genre.id ? "bold" : "normal"}
+                fontWeight={selectedGenreId === genre.id ? "bold" : "normal"}
                 onClick={() => onSelectGenre(genre)}
                 fontSize="lg"
                 _hover={{
