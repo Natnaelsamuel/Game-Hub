@@ -2,12 +2,8 @@ import { GameQuery } from "@/App";
 import apiClient from "@/services/api-client";
 import { useQuery } from "@tanstack/react-query";
 import { FetchResponse } from "@/services/api-client";
+import { Platform } from "./usePlatforms";
 
-export interface Platform {
-  id: number;
-  name: string;
-  slug: string;
-}
 export interface Game {
   id: number;
   name: string; 
@@ -22,6 +18,7 @@ const useGames = (gameQuery: GameQuery) =>
     queryKey: ['games', gameQuery],
     queryFn: () => 
       apiClient
+  
     .get<FetchResponse<Game>>('/games', {
       params: { 
       genres: gameQuery.genre?.id, 
