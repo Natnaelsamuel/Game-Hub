@@ -20,6 +20,7 @@ const ExpandableText = ({ children }: Props) => {
       {summary}
       <Button
         size="xs"
+        color='yellow'
         marginLeft={1}
         fontWeight="bold"
         variant="outline"
